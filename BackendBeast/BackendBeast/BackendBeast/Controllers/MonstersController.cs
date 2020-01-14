@@ -19,7 +19,7 @@ namespace BackendBeast.Controllers
         private BayouEntities1 db = new BayouEntities1();
 
         // GET: api/Monsters
-        public IQueryable<Monster> GetMonster()
+        public List<MonsterDisplay> GetMonster()
         {
             var monster = (db.Monster.Select(mob => new MonsterDisplay
                 {
@@ -35,7 +35,7 @@ namespace BackendBeast.Controllers
                 }).ToList()
             );
 
-            return db.Monster;
+            return monster;
         }
 
         // GET: api/Monsters/5

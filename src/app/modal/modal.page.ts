@@ -8,9 +8,18 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class ModalPage implements OnInit {
   @Input() HpMax: number;
+  @Input() MobName: string;
+  @Input() StrengthMax: number;
+  @Input() ToughnessMax: number;
+  @Input() SmartnessMax: number;
+
 
   constructor(private modalCtrl: ModalController, navParams: NavParams ) {
     this.HpMax = navParams.get('HpMax');
+    this.MobName = navParams.get('MobName');
+    this.StrengthMax = navParams.get('StrengthMax');
+    this.ToughnessMax = navParams.get('ToughnessMax');
+    this.SmartnessMax = navParams.get('SmartnessMax');
   }
 
   ngOnInit() {
@@ -19,6 +28,7 @@ export class ModalPage implements OnInit {
   closeModal() {
     this.modalCtrl.dismiss(
         'HpMax'
+
     )
   }
 }

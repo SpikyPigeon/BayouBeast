@@ -14,8 +14,29 @@
       </ion-row>
     </ion-item>
     <ion-item>
-      <ion-label>HP</ion-label>
-      <ion-range [(ngModel)]="HpMax" min="1" max="55" step="1" value="5" snaps pin color="danger">
+      <ion-label style="font-size:12px">HP</ion-label>
+      <ion-range [(ngModel)]="HpMax" min="1" max="55" step="1" value="{{HpMax}}" snaps pin color="danger">
+        <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
+        <ion-icon slot="end" color="danger" name="heart"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size:12px">STRENGTH</ion-label>
+      <ion-range [(ngModel)]="StrengthMax" min="1" max="55" step="1" value="5" snaps pin color="success">
+        <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
+        <ion-icon slot="end" color="danger" name="heart"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size:12px">TOUGHNESS</ion-label>
+      <ion-range [(ngModel)]="ToughnessMax" min="1" max="55" step="1" value="5" snaps pin color="primary">
+        <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
+        <ion-icon slot="end" color="danger" name="heart"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size:12px">SMARTNESS</ion-label>
+      <ion-range [(ngModel)]="SmartnessMax" min="1" max="55" step="1" value="5" snaps pin color="warning">
         <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
         <ion-icon slot="end" color="danger" name="heart"></ion-icon>
       </ion-range>

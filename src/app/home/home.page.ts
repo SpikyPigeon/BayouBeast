@@ -9,26 +9,21 @@ import {DataService} from '../data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  HpMax: number = 5;
+  HpMax: number;
+  MobName: string;
+  MobPic: string;
   StrengthMax: number = 5;
   ToughnessMax: number = 5;
   SmartnessMax:number = 5;
-  MobName: string;
   MobDescription: string;
-  MobPic: string;
   MobAbilityId: number;
+  Monsters: any;
 
   constructor(private modalController: ModalController, private data: DataService) {
     this.data.get("Monsters").subscribe(res => {
-      this.HpMax = res[0];
-
-      console.log(res + "/" + this.HpMax);
-
+      this.Monsters = res;
+      console.log(this.Monsters);
     })
-  }
-
-  checkInfo(mob: string) {
-    console.log(mob + ' info');
   }
 
   async setStats(mob: string) {

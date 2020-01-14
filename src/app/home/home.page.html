@@ -16,31 +16,13 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="ion-justify-content-center" *ngFor="">
-        <ion-col size="auto" class="choice" (click)="setStats('ogre')" (press)="checkInfo('ogre')">
+      <ion-row class="ion-justify-content-center" *ngFor="let m of Monsters">
+        <ion-col size="auto" class="choice" (click)="setStats(MobName)">
           <div>
-            <ion-label color="success">OGRE</ion-label>
+            <ion-label color="success">{{MobName}}</ion-label>
           </div>
-          <img class="sprite" src="./assets/ogre.png"/><br/>
+          <img class="sprite" src={{MobPic}}/><br/>
         </ion-col>
-        <ion-col size="auto" class="choice" (click)="setStats('werewolf')" (press)="checkInfo('werewolf')">
-          <div >
-            <ion-label color="success">WEREWOLF</ion-label>
-          </div>
-          <img class="sprite" src="./assets/werewolf.png"/>
-        </ion-col>
-        <ion-col size="auto" class="choice" (click)="setStats('alien')" (press)="checkInfo('alien')">
-          <div>
-            <ion-label color="success">XENOMORPH</ion-label>
-          </div>
-          <img class="sprite" src="./assets/Xenomorph.png"/>
-        </ion-col>
-        <ion-col size="auto" class="choice" (click)="setStats('zombie')" (press)="checkInfo('zombie')">
-        <div>
-          <ion-label color="success">ZOMBIE</ion-label>
-        </div>
-        <img class="sprite" src="./assets/braaains.png"/>
-      </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
