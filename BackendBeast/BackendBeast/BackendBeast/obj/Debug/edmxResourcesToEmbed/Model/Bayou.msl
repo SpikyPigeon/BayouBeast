@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BayouModelStoreContainer" CdmEntityContainer="BayouEntities1">
+    <EntitySetMapping Name="Ability">
+      <EntityTypeMapping TypeName="BayouModel.Ability">
+        <MappingFragment StoreEntitySet="Ability">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="monster_id" ColumnName="monster_id" />
+          <ScalarProperty Name="hp_mod" ColumnName="hp_mod" />
+          <ScalarProperty Name="strength_mult" ColumnName="strength_mult" />
+          <ScalarProperty Name="toughness_mult" ColumnName="toughness_mult" />
+          <ScalarProperty Name="smartness_mult" ColumnName="smartness_mult" />
+          <ScalarProperty Name="cooldown" ColumnName="cooldown" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Intruder">
+      <EntityTypeMapping TypeName="BayouModel.Intruder">
+        <MappingFragment StoreEntitySet="Intruder">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hp_init" ColumnName="hp_init" />
+          <ScalarProperty Name="strength_init" ColumnName="strength_init" />
+          <ScalarProperty Name="toughness_init" ColumnName="toughness_init" />
+          <ScalarProperty Name="smartness_init" ColumnName="smartness_init" />
+          <ScalarProperty Name="lvl_min" ColumnName="lvl_min" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Monster">
+      <EntityTypeMapping TypeName="BayouModel.Monster">
+        <MappingFragment StoreEntitySet="Monster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hp_init" ColumnName="hp_init" />
+          <ScalarProperty Name="strength_init" ColumnName="strength_init" />
+          <ScalarProperty Name="toughness_init" ColumnName="toughness_init" />
+          <ScalarProperty Name="smartness_init" ColumnName="smartness_init" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

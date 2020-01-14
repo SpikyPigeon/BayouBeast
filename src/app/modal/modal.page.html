@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Spread Stats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item name="mobCapsule">
+      <ion-row>
+        <ion-col lg="2">
+          <ion-img src="./assets/ogre.png" class="modalSprite"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-label>HP</ion-label>
+      <ion-range [(ngModel)]="HpMax" min="1" max="55" step="1" value="5" snaps pin color="danger">
+        <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
+        <ion-icon slot="end" color="danger" name="heart"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-button color="danger" (click)="closeModal()">
+        Cancel
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

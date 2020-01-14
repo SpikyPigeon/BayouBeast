@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BayouModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ability">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="monster_id" Type="int" Nullable="false" />
+    <Property Name="hp_mod" Type="int" />
+    <Property Name="strength_mult" Type="float" />
+    <Property Name="toughness_mult" Type="float" />
+    <Property Name="smartness_mult" Type="float" />
+    <Property Name="cooldown" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Intruder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="hp_init" Type="int" Nullable="false" />
+    <Property Name="strength_init" Type="int" Nullable="false" />
+    <Property Name="toughness_init" Type="int" Nullable="false" />
+    <Property Name="smartness_init" Type="int" Nullable="false" />
+    <Property Name="lvl_min" Type="int" Nullable="false" />
+    <Property Name="picture" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Monster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="hp_init" Type="int" Nullable="false" />
+    <Property Name="strength_init" Type="int" Nullable="false" />
+    <Property Name="toughness_init" Type="int" Nullable="false" />
+    <Property Name="smartness_init" Type="int" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="picture" Type="image" />
+  </EntityType>
+  <Association Name="monster_id">
+    <End Role="Monster" Type="Self.Monster" Multiplicity="1" />
+    <End Role="Ability" Type="Self.Ability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Monster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ability">
+        <PropertyRef Name="monster_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BayouModelStoreContainer">
+    <EntitySet Name="Ability" EntityType="Self.Ability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Intruder" EntityType="Self.Intruder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Monster" EntityType="Self.Monster" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="monster_id" Association="Self.monster_id">
+      <End Role="Monster" EntitySet="Monster" />
+      <End Role="Ability" EntitySet="Ability" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
