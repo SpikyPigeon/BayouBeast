@@ -10,10 +10,20 @@ import {DataService} from '../data.service';
 })
 export class HomePage {
   HpMax: number = 5;
+  StrengthMax: number = 5;
+  ToughnessMax: number = 5;
+  SmartnessMax:number = 5;
+  MobName: string;
+  MobDescription: string;
+  MobPic: string;
+  MobAbilityId: number;
 
   constructor(private modalController: ModalController, private data: DataService) {
     this.data.get("Monsters").subscribe(res => {
-      console.log(res);
+      this.HpMax = res[0];
+
+      console.log(res + "/" + this.HpMax);
+
     })
   }
 
