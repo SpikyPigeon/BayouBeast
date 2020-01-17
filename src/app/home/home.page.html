@@ -15,13 +15,12 @@
           PICK A MONSTER
         </ion-col>
       </ion-row>
-
-      <ion-row class="ion-justify-content-center" *ngFor="let m of Monsters">
-        <ion-col size="auto" class="choice" (click)="setStats(MobName)">
+      <ion-row class="ion-justify-content-center" >
+        <ion-col size="auto" class="choice" *ngFor="let m of Monsters" (click)="setStats(m)">
           <div>
-            <ion-label color="success">{{MobName}}</ion-label>
+            <ion-label color="success">{{m.Name}}</ion-label>
           </div>
-          <img class="sprite" src={{MobPic}}/><br/>
+          <img class="sprite" src="{{m.Picture}}"/><br/>
         </ion-col>
       </ion-row>
       <ion-row>

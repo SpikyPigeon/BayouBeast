@@ -20,25 +20,33 @@ export class HomePage {
   Monsters: any;
 
   constructor(private modalController: ModalController, private data: DataService) {
-    this.data.get("Monsters").subscribe(res => {
+    this.data.get("monsters").subscribe(res => {
       this.Monsters = res;
       console.log(this.Monsters);
     })
   }
 
-  async setStats(mob: string) {
+  async setStats(mob: any) {
     console.log(mob);
 
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps : {
-        'HpMax': this.HpMax
+        /*'HpMax': this.HpMax,
+        'MobName':this.MobName,
+        'MobPic':this.MobPic,
+        'StrengthMax':this.StrengthMax,
+        'ToughnessMax':this.ToughnessMax,
+        'SmartnessMax':this.SmartnessMax,
+        'MobDescription':this.MobDescription,
+        'MobAbilityId':this.MobAbilityId*/
+        'Monster': mob,
       }
     });
     await modal.present();
     const {data} = await modal.onWillDismiss();
-    this.HpMax = data.Hp;
-    console.log(data);
+    mob = data;
+    console.log("Data:" + data);
 
   }
 

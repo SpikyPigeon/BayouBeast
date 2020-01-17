@@ -54,7 +54,6 @@ C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\En
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\EntityFramework.SqlServer.xml
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\fr\EntityFramework.resources.dll
-C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\obj\Debug\BackendBeast.csprojAssemblyReference.cache
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\obj\Debug\BackendBeast.csproj.CoreCompileInputs.cache
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\obj\Debug\BackendBeast.csproj.CopyComplete
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\obj\Debug\BackendBeast.dll
@@ -71,3 +70,4 @@ C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\Sy
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\System.Web.Http.Cors.dll
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\System.Web.Http.Cors.xml
 C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Alexis\B34_Notes\TP2\BayouBeast\BackendBeast\BackendBeast\BackendBeast\obj\Debug\BackendBeast.csprojAssemblyReference.cache

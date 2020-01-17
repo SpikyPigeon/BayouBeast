@@ -13,10 +13,10 @@ namespace BackendBeast.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BayouEntities1 : DbContext
+    public partial class BayouEntities2 : DbContext
     {
-        public BayouEntities1()
-            : base("name=BayouEntities1")
+        public BayouEntities2()
+            : base("name=BayouEntities2")
         {
         }
     
@@ -25,8 +25,8 @@ namespace BackendBeast.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ability> Ability { get; set; }
-        public virtual DbSet<Intruder> Intruder { get; set; }
-        public virtual DbSet<Monster> Monster { get; set; }
+        public virtual DbSet<Ability> Abilities { get; set; }
+        public virtual DbSet<Intruder> Intruders { get; set; }
+        public virtual DbSet<Monster> Monsters { get; set; }
     }
 }

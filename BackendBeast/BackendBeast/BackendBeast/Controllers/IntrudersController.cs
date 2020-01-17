@@ -17,19 +17,19 @@ namespace BackendBeast.Controllers
 
     public class IntrudersController : ApiController
     {
-        private BayouEntities1 db = new BayouEntities1();
+        private BayouEntities2 db = new BayouEntities2();
 
         // GET: api/Intruders
-        public IQueryable<Intruder> GetIntruder()
+        public IQueryable<Intruder> GetIntruders()
         {
-            return db.Intruder;
+            return db.Intruders;
         }
 
         // GET: api/Intruders/5
         [ResponseType(typeof(Intruder))]
         public IHttpActionResult GetIntruder(int id)
         {
-            Intruder intruder = db.Intruder.Find(id);
+            Intruder intruder = db.Intruders.Find(id);
             if (intruder == null)
             {
                 return NotFound();
@@ -82,7 +82,7 @@ namespace BackendBeast.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Intruder.Add(intruder);
+            db.Intruders.Add(intruder);
 
             try
             {
@@ -107,13 +107,13 @@ namespace BackendBeast.Controllers
         [ResponseType(typeof(Intruder))]
         public IHttpActionResult DeleteIntruder(int id)
         {
-            Intruder intruder = db.Intruder.Find(id);
+            Intruder intruder = db.Intruders.Find(id);
             if (intruder == null)
             {
                 return NotFound();
             }
 
-            db.Intruder.Remove(intruder);
+            db.Intruders.Remove(intruder);
             db.SaveChanges();
 
             return Ok(intruder);
@@ -130,7 +130,7 @@ namespace BackendBeast.Controllers
 
         private bool IntruderExists(int id)
         {
-            return db.Intruder.Count(e => e.id == id) > 0;
+            return db.Intruders.Count(e => e.id == id) > 0;
         }
     }
 }

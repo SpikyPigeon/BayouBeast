@@ -12,14 +12,13 @@ export class ModalPage implements OnInit {
   @Input() StrengthMax: number;
   @Input() ToughnessMax: number;
   @Input() SmartnessMax: number;
-
+  MobDescription: string;
+  MobPic: string;
+  Monster: any;
 
   constructor(private modalCtrl: ModalController, navParams: NavParams ) {
-    this.HpMax = navParams.get('HpMax');
-    this.MobName = navParams.get('MobName');
-    this.StrengthMax = navParams.get('StrengthMax');
-    this.ToughnessMax = navParams.get('ToughnessMax');
-    this.SmartnessMax = navParams.get('SmartnessMax');
+    this.Monster = navParams.get('mob');
+
   }
 
   ngOnInit() {
@@ -27,8 +26,11 @@ export class ModalPage implements OnInit {
 
   closeModal() {
     this.modalCtrl.dismiss(
-        'HpMax'
-
+        'mob'
     )
   }
 }
+
+/*export class Monster{
+  HpMax:number;
+}*/

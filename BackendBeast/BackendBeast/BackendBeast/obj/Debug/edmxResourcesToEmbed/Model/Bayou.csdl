@@ -13,7 +13,7 @@
     <Property Name="toughness_mult" Type="Double" />
     <Property Name="smartness_mult" Type="Double" />
     <Property Name="cooldown" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Monster" Relationship="Self.monster_id" FromRole="Ability" ToRole="Monster" />
+    <NavigationProperty Name="Monster" Relationship="Self.FK_Ability_Monster" FromRole="Ability" ToRole="Monster" />
   </EntityType>
   <EntityType Name="Intruder">
     <Key>
@@ -26,7 +26,7 @@
     <Property Name="toughness_init" Type="Int32" Nullable="false" />
     <Property Name="smartness_init" Type="Int32" Nullable="false" />
     <Property Name="lvl_min" Type="Int32" Nullable="false" />
-    <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="picture" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Monster">
     <Key>
@@ -39,10 +39,10 @@
     <Property Name="toughness_init" Type="Int32" Nullable="false" />
     <Property Name="smartness_init" Type="Int32" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="Ability" Relationship="Self.monster_id" FromRole="Monster" ToRole="Ability" />
+    <Property Name="picture" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Abilities" Relationship="Self.FK_Ability_Monster" FromRole="Monster" ToRole="Ability" />
   </EntityType>
-  <Association Name="monster_id">
+  <Association Name="FK_Ability_Monster">
     <End Role="Monster" Type="Self.Monster" Multiplicity="1" />
     <End Role="Ability" Type="Self.Ability" Multiplicity="*" />
     <ReferentialConstraint>
@@ -54,13 +54,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BayouEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Ability" EntityType="Self.Ability" />
-    <EntitySet Name="Intruder" EntityType="Self.Intruder" />
-    <EntitySet Name="Monster" EntityType="Self.Monster" />
-    <AssociationSet Name="monster_id" Association="Self.monster_id">
-      <End Role="Monster" EntitySet="Monster" />
-      <End Role="Ability" EntitySet="Ability" />
+  <EntityContainer Name="BayouEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abilities" EntityType="Self.Ability" />
+    <EntitySet Name="Intruders" EntityType="Self.Intruder" />
+    <EntitySet Name="Monsters" EntityType="Self.Monster" />
+    <AssociationSet Name="FK_Ability_Monster" Association="Self.FK_Ability_Monster">
+      <End Role="Monster" EntitySet="Monsters" />
+      <End Role="Ability" EntitySet="Abilities" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

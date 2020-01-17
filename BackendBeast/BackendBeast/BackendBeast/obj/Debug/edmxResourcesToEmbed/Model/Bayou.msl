@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BayouModelStoreContainer" CdmEntityContainer="BayouEntities1">
-    <EntitySetMapping Name="Ability">
+  <EntityContainerMapping StorageEntityContainer="BayouModelStoreContainer" CdmEntityContainer="BayouEntities2">
+    <EntitySetMapping Name="Abilities">
       <EntityTypeMapping TypeName="BayouModel.Ability">
         <MappingFragment StoreEntitySet="Ability">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -16,7 +16,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Intruder">
+    <EntitySetMapping Name="Intruders">
       <EntityTypeMapping TypeName="BayouModel.Intruder">
         <MappingFragment StoreEntitySet="Intruder">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -30,7 +30,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Monster">
+    <EntitySetMapping Name="Monsters">
       <EntityTypeMapping TypeName="BayouModel.Monster">
         <MappingFragment StoreEntitySet="Monster">
           <ScalarProperty Name="id" ColumnName="id" />

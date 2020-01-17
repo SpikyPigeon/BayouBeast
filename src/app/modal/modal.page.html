@@ -1,42 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Spread Stats</ion-title>
+    <ion-title>Spread {{Monster.Name}} Stats</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item name="mobCapsule">
+    <ion-item>
       <ion-row>
-        <ion-col lg="2">
-          <ion-img src="./assets/ogre.png" class="modalSprite"></ion-img>
+        <ion-col>
+          <ion-img src="{{Monster.Picture}}" class="modalSprite"></ion-img>
+        </ion-col>
+        <ion-col >
+          <ion-text>{{Monster.Description}}</ion-text>
         </ion-col>
       </ion-row>
     </ion-item>
     <ion-item>
       <ion-label style="font-size:12px">HP</ion-label>
-      <ion-range [(ngModel)]="HpMax" min="1" max="55" step="1" value="{{HpMax}}" snaps pin color="danger">
+      <ion-range [(ngModel)]="Monster.Hp_init" min="1" max="55" step="1" pin color="danger">
         <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
         <ion-icon slot="end" color="danger" name="heart"></ion-icon>
       </ion-range>
     </ion-item>
     <ion-item>
-      <ion-label style="font-size:12px">STRENGTH</ion-label>
-      <ion-range [(ngModel)]="StrengthMax" min="1" max="55" step="1" value="5" snaps pin color="success">
+      <ion-label style="font-size:12px">STRENGTH<ion-badge [(ngModel)]="Monster.Strength_init" color="secondary" class="badge badge-ios badge-ios-secondary"></ion-badge></ion-label>
+      <ion-range [(ngModel)]="Monster.Strength_init" name="strength" min="1" max="55" step="1" value="5" pin color="success">
         <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
         <ion-icon slot="end" color="danger" name="heart"></ion-icon>
       </ion-range>
+
     </ion-item>
     <ion-item>
       <ion-label style="font-size:12px">TOUGHNESS</ion-label>
-      <ion-range [(ngModel)]="ToughnessMax" min="1" max="55" step="1" value="5" snaps pin color="primary">
+      <ion-range [(ngModel)]="Monster.Toughness_init" min="1" max="55" step="1" value="5" pin color="primary">
         <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
         <ion-icon slot="end" color="danger" name="heart"></ion-icon>
       </ion-range>
     </ion-item>
     <ion-item>
       <ion-label style="font-size:12px">SMARTNESS</ion-label>
-      <ion-range [(ngModel)]="SmartnessMax" min="1" max="55" step="1" value="5" snaps pin color="warning">
+      <ion-range [(ngModel)]="Monster.Smartness_init" min="1" max="55" step="1" value="5" pin color="warning">
         <ion-icon slot="start" size="small" color="danger" name="heart"></ion-icon>
         <ion-icon slot="end" color="danger" name="heart"></ion-icon>
       </ion-range>

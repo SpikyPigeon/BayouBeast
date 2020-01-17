@@ -9,7 +9,6 @@
 
 namespace BackendBeast.Model
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,7 +17,7 @@ namespace BackendBeast.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Monster()
         {
-            this.Ability = new HashSet<Ability>();
+            this.Abilities = new HashSet<Ability>();
         }
     
         public int id { get; set; }
@@ -28,9 +27,9 @@ namespace BackendBeast.Model
         public int toughness_init { get; set; }
         public int smartness_init { get; set; }
         public string description { get; set; }
-        public byte[] picture { get; set; }
+        public string picture { get; set; }
     
-        [JsonIgnore]
-        public virtual ICollection<Ability> Ability { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ability> Abilities { get; set; }
     }
 }

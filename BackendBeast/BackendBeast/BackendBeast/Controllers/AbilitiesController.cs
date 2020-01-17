@@ -17,19 +17,19 @@ namespace BackendBeast.Controllers
 
     public class AbilitiesController : ApiController
     {
-        private BayouEntities1 db = new BayouEntities1();
+        private BayouEntities2 db = new BayouEntities2();
 
         // GET: api/Abilities
-        public IQueryable<Ability> GetAbility()
+        public IQueryable<Ability> GetAbilities()
         {
-            return db.Ability;
+            return db.Abilities;
         }
 
         // GET: api/Abilities/5
         [ResponseType(typeof(Ability))]
         public IHttpActionResult GetAbility(int id)
         {
-            Ability ability = db.Ability.Find(id);
+            Ability ability = db.Abilities.Find(id);
             if (ability == null)
             {
                 return NotFound();
@@ -82,7 +82,7 @@ namespace BackendBeast.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Ability.Add(ability);
+            db.Abilities.Add(ability);
 
             try
             {
@@ -107,13 +107,13 @@ namespace BackendBeast.Controllers
         [ResponseType(typeof(Ability))]
         public IHttpActionResult DeleteAbility(int id)
         {
-            Ability ability = db.Ability.Find(id);
+            Ability ability = db.Abilities.Find(id);
             if (ability == null)
             {
                 return NotFound();
             }
 
-            db.Ability.Remove(ability);
+            db.Abilities.Remove(ability);
             db.SaveChanges();
 
             return Ok(ability);
@@ -130,7 +130,7 @@ namespace BackendBeast.Controllers
 
         private bool AbilityExists(int id)
         {
-            return db.Ability.Count(e => e.id == id) > 0;
+            return db.Abilities.Count(e => e.id == id) > 0;
         }
     }
 }

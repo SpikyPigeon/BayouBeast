@@ -14,25 +14,26 @@ using BackendBeast.Model;
 namespace BackendBeast.Controllers
 {
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+
     public class MonstersController : ApiController
     {
-        private BayouEntities1 db = new BayouEntities1();
+        private BayouEntities2 db = new BayouEntities2();
 
         // GET: api/Monsters
-        public List<MonsterDisplay> GetMonster()
+        public List<MonstersDisplay> GetMonsters()
         {
-            var monster = (db.Monster.Select(mob => new MonsterDisplay
-                {
-                    ID = mob.id,
-                    Name = mob.name,
-                    Hp_init = mob.hp_init,
-                    Strength_init = mob.strength_init,
-                    Toughness_init = mob.toughness_init,
-                    Smartness_init = mob.smartness_init,
-                    Description = mob.description,
-                    Picture = mob.picture,
-                    AbilityID = db.Ability.Where(t => t.monster_id == mob.id)
-                }).ToList()
+            var monster = (db.Monsters.Select(mob => new MonstersDisplay
+            {
+                ID = mob.id,
+                Name = mob.name,
+                Hp_init = mob.hp_init,
+                Strength_init = mob.strength_init,
+                Toughness_init = mob.toughness_init,
+                Smartness_init = mob.smartness_init,
+                Description = mob.description,
+                Picture = mob.picture,
+                AbilityID = db.Abilities.Where(t => t.monster_id == mob.id)
+            }).ToList()
             );
 
             return monster;
@@ -42,7 +43,7 @@ namespace BackendBeast.Controllers
         [ResponseType(typeof(Monster))]
         public IHttpActionResult GetMonster(int id)
         {
-            Monster monster = db.Monster.Find(id);
+            Monster monster = db.Monsters.Find(id);
             if (monster == null)
             {
                 return NotFound();
@@ -95,7 +96,7 @@ namespace BackendBeast.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Monster.Add(monster);
+            db.Monsters.Add(monster);
 
             try
             {
@@ -120,13 +121,13 @@ namespace BackendBeast.Controllers
         [ResponseType(typeof(Monster))]
         public IHttpActionResult DeleteMonster(int id)
         {
-            Monster monster = db.Monster.Find(id);
+            Monster monster = db.Monsters.Find(id);
             if (monster == null)
             {
                 return NotFound();
             }
 
-            db.Monster.Remove(monster);
+            db.Monsters.Remove(monster);
             db.SaveChanges();
 
             return Ok(monster);
@@ -143,11 +144,11 @@ namespace BackendBeast.Controllers
 
         private bool MonsterExists(int id)
         {
-            return db.Monster.Count(e => e.id == id) > 0;
+            return db.Monsters.Count(e => e.id == id) > 0;
         }
     }
 
-    public class MonsterDisplay
+    public class MonstersDisplay
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -156,7 +157,7 @@ namespace BackendBeast.Controllers
         public int Toughness_init { get; set; }
         public int Smartness_init { get; set; }
         public string Description { get; set; }
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
         public IQueryable<Ability> AbilityID { get; set; }
     }
 }

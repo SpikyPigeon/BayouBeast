@@ -21,6 +21,6 @@ namespace BackendBeast.Model
         public int toughness_init { get; set; }
         public int smartness_init { get; set; }
         public int lvl_min { get; set; }
-        public byte[] picture { get; set; }
+        public string picture { get; set; }
     }
 }
