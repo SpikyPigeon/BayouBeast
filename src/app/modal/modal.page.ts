@@ -12,13 +12,12 @@ export class ModalPage implements OnInit {
   @Input() StrengthMax: number;
   @Input() ToughnessMax: number;
   @Input() SmartnessMax: number;
-  MobDescription: string;
-  MobPic: string;
   Monster: any;
+  Points: number;
 
   constructor(private modalCtrl: ModalController, navParams: NavParams ) {
     this.Monster = navParams.get('mob');
-
+    this.Points = navParams.get('Points');
   }
 
   ngOnInit() {
@@ -29,8 +28,23 @@ export class ModalPage implements OnInit {
         'mob'
     )
   }
-}
 
-/*export class Monster{
-  HpMax:number;
-}*/
+  modStat(amount: number, stat: string){
+      console.log("modStat says : " + amount + " " + stat);
+      //Check for stat to change
+      if(stat == "Strength"){
+          this.Points += amount;
+          this.StrengthMax += amount;
+
+      }else if(stat == "HP"){
+          this.Points += amount;
+      }else if(stat == "Toughness"){
+          this.Points += amount;
+      }else if(stat == "Smartness"){
+          this.Points += amount;
+      }else{
+        console.log("Dude, " + stat + " is not a Monster Stat!");
+      }
+  }
+
+}

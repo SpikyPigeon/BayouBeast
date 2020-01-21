@@ -9,19 +9,13 @@ import {DataService} from '../data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  HpMax: number;
-  MobName: string;
-  MobPic: string;
-  StrengthMax: number = 5;
-  ToughnessMax: number = 5;
-  SmartnessMax:number = 5;
-  MobDescription: string;
-  MobAbilityId: number;
   Monsters: any;
+  Points: number;
 
   constructor(private modalController: ModalController, private data: DataService) {
     this.data.get("monsters").subscribe(res => {
       this.Monsters = res;
+      this.Points = 10;
       console.log(this.Monsters);
     })
   }
@@ -32,15 +26,8 @@ export class HomePage {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps : {
-        /*'HpMax': this.HpMax,
-        'MobName':this.MobName,
-        'MobPic':this.MobPic,
-        'StrengthMax':this.StrengthMax,
-        'ToughnessMax':this.ToughnessMax,
-        'SmartnessMax':this.SmartnessMax,
-        'MobDescription':this.MobDescription,
-        'MobAbilityId':this.MobAbilityId*/
         'Monster': mob,
+        'Points': this.Points,
       }
     });
     await modal.present();
