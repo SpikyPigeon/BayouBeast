@@ -7,6 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item>
+      <!-- Monster Description Box -->
       <ion-row>
         <ion-col>
           <ion-img src="{{Monster.Picture}}" class="modalSprite"></ion-img>
@@ -16,9 +17,11 @@
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- Points -->
     <ion-item class="ion-text-center">
       <ion-label style="font-size:16px"><i style="color:grey">Points Allowed: </i><ion-badge color="dark">{{Points}}</ion-badge></ion-label>
     </ion-item>
+    <!-- HEALTH -->
     <ion-item>
       <ion-row size="auto">
         <ion-col>
@@ -32,6 +35,7 @@
       <ion-badge color="danger" class="ion-text-center">{{Monster.Hp_init}}</ion-badge>
       <ion-progress-bar id="HpBar" name="HpBar" color="danger" value="{{getStatForBar(Monster.Hp_init)}}"></ion-progress-bar>
     </ion-item>
+    <!-- STRENGTH -->
     <ion-item>
       <ion-row>
         <ion-col size="auto">
@@ -45,6 +49,7 @@
       <ion-badge color="success" class="ion-text-center">{{Monster.Strength_init}}</ion-badge>
       <ion-progress-bar color="success" value="{{getStatForBar(Monster.Strength_init)}}"></ion-progress-bar>
     </ion-item>
+    <!-- TOUGHNESS -->
     <ion-item>
       <ion-row size="auto">
         <ion-col>
@@ -58,6 +63,7 @@
       <ion-badge color="primary" class="ion-text-center">{{Monster.Toughness_init}}</ion-badge>
       <ion-progress-bar color="primary" value="{{Monster.Toughness_init / 80}}"></ion-progress-bar>
     </ion-item>
+    <!-- SMARTNESS -->
     <ion-item>
       <ion-row size="auto">
         <ion-col>
@@ -71,6 +77,11 @@
       <ion-badge color="warning" class="ion-text-center">{{Monster.Smartness_init}}</ion-badge>
       <ion-progress-bar color="warning" value="{{Monster.Smartness_init / 80}}"></ion-progress-bar>
     </ion-item>
+    <!-- ABILITY BOX -->
+    <ion-item>
+
+    </ion-item>
+    <!-- BUTTONS -->
     <ion-item>
       <ion-button color="danger" (click)="closeModal()">
         Cancel
