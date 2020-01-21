@@ -11,14 +11,14 @@
 
 .sprite{
 	max-height: 250px;
+	width: 200px;
 }
 .pane{
 	background:url(./assets/swamp.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center bottom;
-	height:100%;
-	width:100vw;
+	background-attachment: fixed;
 	color:white;
 }
 .title{

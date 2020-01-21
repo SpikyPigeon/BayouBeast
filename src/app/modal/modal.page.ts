@@ -14,6 +14,7 @@ export class ModalPage implements OnInit {
   @Input() SmartnessMax: number;
   Monster: any;
   Points: number;
+  baseStats: Array<number> = new Array<number>();
 
   constructor(private modalCtrl: ModalController, navParams: NavParams ) {
     this.Monster = navParams.get('mob');
@@ -21,6 +22,10 @@ export class ModalPage implements OnInit {
   }
 
   ngOnInit() {
+      this.baseStats[0] = this.Monster.Hp_init;
+      this.baseStats[1] = this.Monster.Strength_init;
+      this.baseStats[2] = this.Monster.Toughness_init;
+      this.baseStats[3] = this.Monster.Smartness_init;
   }
 
   closeModal() {
@@ -30,21 +35,49 @@ export class ModalPage implements OnInit {
   }
 
   modStat(amount: number, stat: string){
-      console.log("modStat says : " + amount + " " + stat);
       //Check for stat to change
       if(stat == "Strength"){
-          this.Points += amount;
-          this.StrengthMax += amount;
+          this.Points -= amount;
+          this.Monster.Strength_init += amount;
+
 
       }else if(stat == "HP"){
-          this.Points += amount;
+          this.Points -= amount;
+          this.Monster.Hp_init += amount;
+
+
+
       }else if(stat == "Toughness"){
-          this.Points += amount;
+          this.Points -= amount;
+          this.Monster.Toughness_init += amount;
+
+
       }else if(stat == "Smartness"){
-          this.Points += amount;
-      }else{
-        console.log("Dude, " + stat + " is not a Monster Stat!");
+          this.Points -= amount;
+          this.Monster.Smartness_init += amount;
+
+
       }
   }
 
+  getStatForBar(amount: number){
+      return (amount / 80);
+  }
+
+  checkIfPoints(mode: string, min?: number, current?: number){
+      if(mode == "= 0" && this.Points == 0){
+        return true;
+      }
+      else if(mode == "> 0" && this.Points > 0){
+          return true;
+      }
+      else if(mode == "= 10"){
+          if(current <= this.baseStats[min]){
+              return true;
+          }
+      }
+      else{
+          return false;
+      }
+  }
 }
