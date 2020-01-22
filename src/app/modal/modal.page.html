@@ -77,18 +77,13 @@
       <ion-badge color="warning" class="ion-text-center">{{Monster.Smartness_init}}</ion-badge>
       <ion-progress-bar color="warning" value="{{Monster.Smartness_init / 80}}"></ion-progress-bar>
     </ion-item>
-    <!-- ABILITY BOX -->
-    <ion-item>
-
-    </ion-item>
     <!-- BUTTONS -->
     <ion-item>
       <ion-button color="danger" (click)="closeModal()">
         Cancel
       </ion-button>
-      <!-- TEST TEST TEST TITS TEST TEST TEST -->
-      <ion-button [disabled]="checkIfPoints('> 0')">
-        GO!
+      <ion-button color="success" [disabled]="checkIfPoints('> 0')" (click)="whatever">
+        Start
       </ion-button>
     </ion-item>
   </ion-list>
