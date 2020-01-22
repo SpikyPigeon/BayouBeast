@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import {ModalController, NavController, NavParams} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -16,7 +17,7 @@ export class ModalPage implements OnInit {
   Points: number;
   baseStats: Array<number> = new Array<number>();
 
-  constructor(private modalCtrl: ModalController, navParams: NavParams ) {
+  constructor(private modalCtrl: ModalController, navParams: NavParams, public navCtrl: NavController, private route: Router) {
     this.Monster = navParams.get('mob');
     this.Points = navParams.get('Points');
   }
@@ -80,4 +81,9 @@ export class ModalPage implements OnInit {
           return false;
       }
   }
+
+  startGame(){
+    this.route.navigate([""])
+  }
+
 }
