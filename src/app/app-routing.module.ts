@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },  {
+    path: 'fight',
+    loadChildren: () => import('./fight/fight.module').then( m => m.FightPageModule)
   },
+
 
 ];
 
