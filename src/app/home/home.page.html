@@ -17,9 +17,6 @@
       </ion-row>
       <ion-row class="ion-justify-content-center" >
         <ion-col size="auto" class="choice" *ngFor="let m of Monsters" (click)="setStats(m)">
-          <div>
-            <ion-label color="success">{{m.Name}}</ion-label>
-          </div>
           <img class="sprite" src="{{m.Picture}}"/><br/>
         </ion-col>
       </ion-row>

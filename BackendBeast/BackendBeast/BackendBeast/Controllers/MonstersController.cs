@@ -27,6 +27,7 @@ namespace BackendBeast.Controllers
                 ID = mob.id,
                 Name = mob.name,
                 Hp_init = mob.hp_init,
+                Hp_current = mob.hp_init,
                 Strength_init = mob.strength_init,
                 Toughness_init = mob.toughness_init,
                 Smartness_init = mob.smartness_init,
@@ -153,6 +154,7 @@ namespace BackendBeast.Controllers
         public int ID { get; set; }
         public string Name { get; set; }
         public int Hp_init { get; set; }
+        public int Hp_current { get; set; }
         public int Strength_init { get; set; }
         public int Toughness_init { get; set; }
         public int Smartness_init { get; set; }

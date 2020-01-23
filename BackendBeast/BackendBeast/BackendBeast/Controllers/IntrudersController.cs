@@ -20,9 +20,23 @@ namespace BackendBeast.Controllers
         private BayouEntities2 db = new BayouEntities2();
 
         // GET: api/Intruders
-        public IQueryable<Intruder> GetIntruders()
+        public List<IntrudersDisplay> GetIntruders()
         {
-            return db.Intruders;
+            var intruder = (db.Intruders.Select(i => new IntrudersDisplay
+            {
+                ID = i.id,
+                Name = i.name,
+                Hp_init = i.hp_init,
+                Hp_current = i.hp_init,
+                Strength_init = i.strength_init,
+                Toughness_init = i.toughness_init,
+                Smartness_init = i.smartness_init,
+                Lvl_min = i.lvl_min,
+                Picture = i.picture
+            }).ToList()
+            );
+
+            return intruder;
         }
 
         // GET: api/Intruders/5
@@ -132,5 +146,18 @@ namespace BackendBeast.Controllers
         {
             return db.Intruders.Count(e => e.id == id) > 0;
         }
+    }
+
+    public class IntrudersDisplay
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Hp_init { get; set; }
+        public int Hp_current { get; set; }
+        public int Strength_init { get; set; }
+        public int Toughness_init { get; set; }
+        public int Smartness_init { get; set; }
+        public int Lvl_min { get; set; }
+        public string Picture { get; set; }
     }
 }

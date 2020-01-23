@@ -82,8 +82,9 @@ export class ModalPage implements OnInit {
       }
   }
 
-  startGame(){
-    this.route.navigate([""])
+  startGame(mob: any){
+    this.route.navigate(["fight"], {state: {Monster: mob}});
+    console.log(this.Monster.Hp_init);
   }
 
 }

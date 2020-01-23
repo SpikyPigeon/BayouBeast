@@ -1,9 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>fight</ion-title>
+    <ion-title>Beast of the Bayou</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="pane" id="fight_pane">
+    <ion-grid>
+      <!-- Title -->
+      <ion-row>
+        <ion-col class="ion-text-center title">
+          Fight #{{Win_cpt + 1}}
+        </ion-col>
+      </ion-row>
+      <!-- Intruder Health Bar -->
+      <ion-row>
+        <ion-col>
+          <ion-label style="float:right;color:white;text-shadow: 1px 1px black">
+            {{Current_intruder.Name}}
+          </ion-label>
+          <ion-progress-bar color="danger" reversed="true" value="{{Current_intruder.Hp_current / Current_intruder.Hp_init}}" style="box-shadow:3px 3px black"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+      <!-- Sprite Box -->
+      <ion-row>
+        <!-- Sprite Box: PLAYER -->
+        <ion-col size="auto" class="ion-justify-content-end">
+          <div class="battleSprite" id="monster" style="">
+            <img src="{{Monster.Picture}}" class="mobSprite"/>
+          </div>
+        </ion-col>
+        <!-- Sprite Box: OPPONENT -->
+        <ion-col size="auto" class="ion-justify-content-end">
+          <div class="battleSprite" id="intruder">
+            <img src="{{Current_intruder.Picture}}" class="mobSprite">
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- Monster Health Bar -->
+      <ion-row>
+        <ion-label style="float:left;color:white;text-shadow: 1px 1px black">
+          {{Monster.Name}}
+        </ion-label>
+        <ion-progress-bar color="primary" value="{{Monster.Hp_current / Monster.Hp_init}}" style="box-shadow:3px 3px black"></ion-progress-bar>
+      </ion-row>
+      <!-- Combat Buttons -->
+      <ion-row>
+        <ion-col push="3">
+          <ion-button color="tertiary" style="color:black">Attack</ion-button>
+          <ion-button (click)="pickEnemy()" >Escape</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

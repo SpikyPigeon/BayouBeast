@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Spread {{Monster.Name}} Stats</ion-title>
+    <ion-title>{{Monster.Name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -82,9 +82,10 @@
       <ion-button color="danger" (click)="closeModal()">
         Cancel
       </ion-button>
-      <ion-button color="success" [disabled]="checkIfPoints('> 0')" (click)="startGame()">
+      <ion-button color="success"  (click)="startGame(Monster); closeModal()">
         Start
       </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
+<!--[disabled]="checkIfPoints('> 0')"-->
