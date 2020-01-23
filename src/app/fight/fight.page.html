@@ -16,6 +16,9 @@
       <!-- Intruder Health Bar -->
       <ion-row>
         <ion-col>
+          <ion-label style="float:left;color:red;text-shadow: 1px 1px black">
+            ♥ {{Current_intruder.Hp_current}} / {{Current_intruder.Hp_init}}
+          </ion-label>
           <ion-label style="float:right;color:white;text-shadow: 1px 1px black">
             {{Current_intruder.Name}}
           </ion-label>
@@ -39,16 +42,29 @@
       </ion-row>
       <!-- Monster Health Bar -->
       <ion-row>
-        <ion-label style="float:left;color:white;text-shadow: 1px 1px black">
-          {{Monster.Name}}
-        </ion-label>
-        <ion-progress-bar color="primary" value="{{Monster.Hp_current / Monster.Hp_init}}" style="box-shadow:3px 3px black"></ion-progress-bar>
+        <ion-col>
+          <ion-label style="float:right;color:#45a9ff;text-shadow:1px 1px black;font-weight:bold">
+            {{Monster.Hp_current}} / {{Monster.Hp_init}} ♥
+          </ion-label>
+          <ion-label style="float:left;color:white;text-shadow: 1px 1px black">
+            {{Monster.Name}}
+          </ion-label>
+          <ion-progress-bar color="primary" value="{{Monster.Hp_current / Monster.Hp_init}}" style="box-shadow:3px 3px black"></ion-progress-bar>
+        </ion-col>
       </ion-row>
       <!-- Combat Buttons -->
+      <ion-row class="ion-justify-content-evenly">
+        <ion-col push="1">
+          <ion-button (click)="attack()" color="tertiary" [disabled]="stuffHappening">Attack</ion-button>
+          <ion-button color="dark" disabled="false" (click)="Monster.Hp_current = Monster.Hp_init; Current_intruder.Hp_current = Current_intruder.Hp_init">Use Ability</ion-button>
+          <ion-button (click)="pickEnemy()" [disabled]="stuffHappening">Escape</ion-button>
+        </ion-col>
+      </ion-row>
       <ion-row>
-        <ion-col push="3">
-          <ion-button color="tertiary" style="color:black">Attack</ion-button>
-          <ion-button (click)="pickEnemy()" >Escape</ion-button>
+        <ion-col class="ion-text-center">
+          <ion-label style="color:white;text-shadow: 1px 1px black">
+            Turn {{cpt_turns}}
+          </ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>

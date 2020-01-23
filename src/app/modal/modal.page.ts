@@ -40,24 +40,15 @@ export class ModalPage implements OnInit {
       if(stat == "Strength"){
           this.Points -= amount;
           this.Monster.Strength_init += amount;
-
-
       }else if(stat == "HP"){
           this.Points -= amount;
           this.Monster.Hp_init += amount;
-
-
-
       }else if(stat == "Toughness"){
           this.Points -= amount;
           this.Monster.Toughness_init += amount;
-
-
       }else if(stat == "Smartness"){
           this.Points -= amount;
           this.Monster.Smartness_init += amount;
-
-
       }
   }
 
