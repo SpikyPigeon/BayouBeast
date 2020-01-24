@@ -30,13 +30,13 @@
         <!-- Sprite Box: PLAYER -->
         <ion-col size="auto" class="ion-justify-content-end">
           <div class="battleSprite" id="monster" style="">
-            <img src="{{Monster.Picture}}" class="mobSprite"/>
+            <img src="{{Monster.Picture}}" class="mobSprite" (click)="triggerGameOver()"/>
           </div>
         </ion-col>
         <!-- Sprite Box: OPPONENT -->
         <ion-col size="auto" class="ion-justify-content-end">
           <div class="battleSprite" id="intruder">
-            <img src="{{Current_intruder.Picture}}" class="mobSprite">
+            <img src="{{Current_intruder.Picture}}" class="mobSprite" (click)="triggerWin()">
           </div>
         </ion-col>
       </ion-row>
@@ -56,8 +56,8 @@
       <ion-row class="ion-justify-content-evenly">
         <ion-col push="1">
           <ion-button (click)="attack()" color="tertiary" [disabled]="stuffHappening">Attack</ion-button>
-          <ion-button color="dark" disabled="false" (click)="Monster.Hp_current = Monster.Hp_init; Current_intruder.Hp_current = Current_intruder.Hp_init">Use Ability</ion-button>
-          <ion-button (click)="pickEnemy()" [disabled]="stuffHappening">Escape</ion-button>
+          <ion-button color="dark" disabled="true" (click)="Monster.Hp_current = Monster.Hp_init; Current_intruder.Hp_current = Current_intruder.Hp_init">Use Ability</ion-button>
+          <ion-button (click)="escape()" [disabled]="stuffHappening">Escape</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>

@@ -8,11 +8,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage implements OnInit {
-  @Input() HpMax: number;
-  @Input() MobName: string;
-  @Input() StrengthMax: number;
-  @Input() ToughnessMax: number;
-  @Input() SmartnessMax: number;
   Monster: any;
   Points: number;
   baseStats: Array<number> = new Array<number>();
@@ -20,6 +15,7 @@ export class ModalPage implements OnInit {
   constructor(private modalCtrl: ModalController, navParams: NavParams, public navCtrl: NavController, private route: Router) {
     this.Monster = navParams.get('mob');
     this.Points = navParams.get('Points');
+
   }
 
   ngOnInit() {
@@ -27,12 +23,13 @@ export class ModalPage implements OnInit {
       this.baseStats[1] = this.Monster.Strength_init;
       this.baseStats[2] = this.Monster.Toughness_init;
       this.baseStats[3] = this.Monster.Smartness_init;
+      console.log("well shit");
   }
 
   closeModal() {
     this.modalCtrl.dismiss(
         'mob'
-    )
+    );
   }
 
   modStat(amount: number, stat: string){
@@ -53,7 +50,7 @@ export class ModalPage implements OnInit {
   }
 
   getStatForBar(amount: number){
-      return (amount / 80);
+      return (amount / 50);
   }
 
   checkIfPoints(mode: string, min?: number, current?: number){
@@ -75,7 +72,7 @@ export class ModalPage implements OnInit {
 
   startGame(mob: any){
     this.route.navigate(["fight"], {state: {Monster: mob}});
-    console.log(this.Monster.Hp_init);
+    this.Monster = "";
   }
 
 }

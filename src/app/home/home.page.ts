@@ -33,7 +33,7 @@ export class HomePage {
     await modal.present();
     const {data} = await modal.onWillDismiss();
     mob = data;
-    console.log("Data:" + data);
+    //console.log("Data:" + data);
 
   }
 

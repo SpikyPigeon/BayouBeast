@@ -61,7 +61,7 @@
         </ion-col>
       </ion-row>
       <ion-badge color="primary" class="ion-text-center">{{Monster.Toughness_init}}</ion-badge>
-      <ion-progress-bar color="primary" value="{{Monster.Toughness_init / 80}}"></ion-progress-bar>
+      <ion-progress-bar color="primary" value="{{getStatForBar(Monster.Toughness_init)}}"></ion-progress-bar>
     </ion-item>
     <!-- SMARTNESS -->
     <ion-item>
@@ -75,7 +75,7 @@
         </ion-col>
       </ion-row>
       <ion-badge color="warning" class="ion-text-center">{{Monster.Smartness_init}}</ion-badge>
-      <ion-progress-bar color="warning" value="{{Monster.Smartness_init / 80}}"></ion-progress-bar>
+      <ion-progress-bar color="warning" value="{{getStatForBar(Monster.Smartness_init)}}"></ion-progress-bar>
     </ion-item>
     <!-- BUTTONS -->
     <ion-item>
